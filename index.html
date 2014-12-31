@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Lithopane Creator by wubbahed</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Lithopane Creator</h1>
+        <p>A node.js command line utility to turn images (jpg/gif/png) into STL lithopanes for 3D printing</p>
+
+        <p class="view"><a href="https://github.com/wubbahed/lithopane">View the Project on GitHub <small>wubbahed/lithopane</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/wubbahed/lithopane/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/wubbahed/lithopane/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/wubbahed/lithopane">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="what-is-a-lithopane" class="anchor" href="#what-is-a-lithopane" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is a lithopane?</h3>
+
+<p>You can read more here about the history of <a href="http://en.wikipedia.org/wiki/Lithophane">Lithopanes</a>.</p>
+
+<p>But this code is designed to let you use a 3D printer to create your own lithopanes from images.  How does this work?  Well, this code simply takes any image, calculates the grayscale value for each pixel, and then creates a 3D model that represents the extrusion of those grayscale values.  Not making sense?  Basically, it takes a flat image like this:</p>
+
+<p>And turns it into this:</p>
+
+<h3>
+<a id="how-do-i-use-this-tool" class="anchor" href="#how-do-i-use-this-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I use this tool?</h3>
+
+<p>Once you've downloaded the source code, you'll need to make sure that all the dependencies are installed and setup.  First, you need to make sure libraries are installed.</p>
+
+<pre><code>$ npm install get-pixels
+$ npm install commander
+</code></pre>
+
+<p>Next, once you download the source code, you'll also need to make the lithopane.js file executable</p>
+
+<pre><code>$ chmod u+x lithopane.js
+</code></pre>
+
+<p>Then you'll be able to call the function from the command line.</p>
+
+<pre><code>$ ./lithopane.js -i reference.png
+</code></pre>
+
+<h3>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h3>
+
+<p>This is a very early release of this, and it's definitely a work in progress with no warranties, so please send any feedback or comments to (<a href="https://github.com/wubbahed" class="user-mention">@wubbahed</a>).</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/wubbahed">wubbahed</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
