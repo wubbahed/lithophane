@@ -10,7 +10,7 @@ var convertToGrayscale = function(r,g,b) {
 
 // allows you to normalize numbers on a scale
 // in this case, we take grayscale values from 0 to 255
-// and scale them to be from 0 to 9.
+// and scale them to be from 0 to 15.
 //
 // Ideally, you could write your own function here to tweak the
 // grayscale values as needed if a linear approach doesn't work
@@ -49,11 +49,11 @@ var getImageHeights = function(d) {
     for (var i=0; i<result.width; i++) {
       result.data.push([]);
 
-      // for each pixel, get its grayscale value, normalize it from 0-9
+      // for each pixel, get its grayscale value, normalize it from 0-15
       // and add it to the array
       for (var j=0; j<result.height; j++) {
         var g = convertToGrayscale(d.get(0,i,j,0), d.get(0,i,j,1), d.get(0,i,j,2));
-        result.data[i][j] = normalizeValue(g, 256, 10);
+        result.data[i][j] = normalizeValue(g, 256, 16);
       }
     }
 
@@ -65,11 +65,11 @@ var getImageHeights = function(d) {
     for (var i=0; i<result.width; i++) {
       result.data.push([]);
 
-      // for each pixel, get its grayscale value, normalize it from 0-9
+      // for each pixel, get its grayscale value, normalize it from 0-15
       // and add it to the array
       for (var j=0; j<result.height; j++) {
         var g = convertToGrayscale(d.get(i,j,0), d.get(i,j,1), d.get(i,j,2));
-        result.data[i][j] = normalizeValue(g, 256, 10);
+        result.data[i][j] = normalizeValue(g, 256, 16);
       }
     }
 
@@ -200,11 +200,13 @@ var getModelAreas = function(d) {
         // just connect it to the next pixel
 
         if (d.data[w][h] != d.data[w][h+1]) {
-          var z2 = scale * d.data[w][h+1]
+          var z2 = base + (scale * d.data[w][h+1])
           areas.push([[x1, y1, z1], [x0,y1,z1], [x0,y1,z2], [x1,y1,z2]])
         }
 
       }
+
+
 
       // right face of each pixel
 
@@ -239,7 +241,7 @@ var getModelAreas = function(d) {
         // just connect it to the next pixel
 
         if (d.data[w][h] != d.data[w+1][h] ) {
-          var z2 = scale * d.data[w+1][h]
+          var z2 = base + (scale * d.data[w+1][h])
           areas.push([[x1, y0, z1], [x1, y1, z1], [x1, y1, z2], [x1, y0, z2] ])
         }
 
