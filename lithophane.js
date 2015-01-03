@@ -14,7 +14,7 @@ var convertToGrayscale = function(r,g,b) {
 //
 // Ideally, you could write your own function here to tweak the
 // grayscale values as needed if a linear approach doesn't work
-// when the lithopanes are printed.
+// when the lithophanes are printed.
 //
 
 var normalizeValue = function (val, from, to) {
@@ -435,13 +435,13 @@ var program = require('commander');
 program
   .version('0.0.1')
   .option('-i, --image [path]', 'Path to image file (required)')
-  .option('-o, --output-file [path]', 'STL output file (defaults to lithopane.stl)', String, 'lithopane.stl')
+  .option('-o, --output-file [path]', 'STL output file (defaults to lithophane.stl)', String, 'lithophane.stl')
   .option('-a, --ascii', 'Export STL as ASCII instead of binary')
   .parse(process.argv);
 
 // process the image if it exists
 if (!program.image) {
-  console.log("You must include an image path as a parameter. See ./lithopane.js -h for more details.")
+  console.log("You must include an image path as a parameter. See ./lithophane.js -h for more details.")
 } else {
   getPixels(program.image, processImage)
 }
